@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class Instances {
 
-    public static Player player;
+    public static Player player = new Player();
     private static ArrayList<AbstractEntity> entities = new ArrayList<AbstractEntity>();
 
     /**

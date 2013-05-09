@@ -10,6 +10,7 @@ public class RussianWordQuest {
     public static final int DISPLAY_HEIGHT = 480;
     public static final int DISPLAY_WIDTH = 640;
     private static GameState state = GameState.INTRO;
+    public static boolean isRunning = false;
     public static final Logger LOGGER = Logger.getLogger(RussianWordQuest.class.getName());
 
     static {
@@ -25,6 +26,7 @@ public class RussianWordQuest {
         try {
             engine = new Runner();
             new Thread(engine).start();
+            isRunning = true;
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.toString(), e);
         } finally {
