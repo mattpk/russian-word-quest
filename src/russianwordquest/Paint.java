@@ -21,7 +21,7 @@ public class Paint {
     JFrame frame;
     Canvas canvas;
     BufferStrategy buffer;
-    private final int DISPLAY_HEIGHT = 640;
+    private final int DISPLAY_HEIGHT = 480;
     private final int DISPLAY_WIDTH = 640;
     private final String NAME = "Russian Word Quest";
 
