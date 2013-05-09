@@ -51,17 +51,24 @@ public class Paint {
         canvas.addKeyListener(new EventHandler());
 
     }
-
+    
     public void render() {
         Graphics2D graphics;
         graphics = (Graphics2D) buffer.getDrawGraphics();
         graphics.clearRect(0, 0, DISPLAY_WIDTH, DISPLAY_HEIGHT);
         render(graphics);
+        
+        
+        
+        
         graphics.dispose();
         buffer.show();
     }
 
     private void render(Graphics2D graphics) {
 
+      
+      
+      
     }
 }
