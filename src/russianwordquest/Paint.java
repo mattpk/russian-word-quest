@@ -53,6 +53,7 @@ public class Paint {
         graphics = (Graphics2D) buffer.getDrawGraphics();
         graphics.clearRect(0, 0, DISPLAY_WIDTH, DISPLAY_HEIGHT);
         render(graphics);
+
         graphics.dispose();
         buffer.show();
     }
