@@ -1,7 +1,5 @@
 package russianwordquest;
 
-import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferInt;
 import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -11,13 +9,8 @@ public class RussianWordQuest {
 
     public static final int DISPLAY_HEIGHT = 480;
     public static final int DISPLAY_WIDTH = 640;
-    private final static String NAME = "Russian Word Quest";
-    private BufferedImage image = new BufferedImage(DISPLAY_WIDTH, DISPLAY_HEIGHT, BufferedImage.TYPE_INT_RGB);
-    private int[] onScreenPixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
     private static GameState state = GameState.INTRO;
     public static final Logger LOGGER = Logger.getLogger(RussianWordQuest.class.getName());
-    private static long lastFrame;
-    private boolean isRunning = false;
 
     static {
         try {
