@@ -3,13 +3,12 @@ package russianwordquest;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-
 /**
  *
  * @author jonathan2
  */
 public class EventHandler extends KeyAdapter {
-
+    
     public EventHandler() {
     }
 
@@ -29,7 +28,7 @@ public class EventHandler extends KeyAdapter {
                 break;
         }
     }
-    
+
     public void keyReleased(KeyEvent key) {
         switch (key.getKeyCode()) {
             case KeyEvent.VK_UP:
@@ -52,6 +51,5 @@ public class EventHandler extends KeyAdapter {
     }
 
     public void keyTyped(KeyEvent key) {
-        
     }
 }

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package russianwordquest;
 
 import java.awt.Canvas;
@@ -62,6 +58,5 @@ public class Paint {
     }
 
     private void render(Graphics2D graphics) {
-
     }
 }

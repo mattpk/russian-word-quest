@@ -24,7 +24,6 @@ public class RussianWordQuest {
         Runner engine = null;
         try {
             engine = new Runner();
-
             new Thread(engine).start();
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.toString(), e);
@@ -36,5 +35,14 @@ public class RussianWordQuest {
     }
 
     public RussianWordQuest() {
+    }
+
+    public void initGame() {
+        Instances.getEntities().clear();
+    }
+
+    public void initEntities() {
+        Instances.player = new Player();
+        Instances.getEntities().add(Instances.player);
     }
 }

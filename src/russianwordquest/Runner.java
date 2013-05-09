@@ -1,4 +1,3 @@
-
 package russianwordquest;
 
 /**
@@ -8,7 +7,7 @@ package russianwordquest;
 public class Runner implements Runnable {
 
     Paint image = new Paint();
-    
+
     @Override
     public void run() {
         while (true) {
@@ -16,9 +15,7 @@ public class Runner implements Runnable {
             image.render();
             try {
                 Thread.sleep(10);
-            }
-            catch(InterruptedException e)
-            {
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }

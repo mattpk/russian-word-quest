@@ -1,5 +1,3 @@
-
-
 package russianwordquest;
 
 /**
@@ -27,5 +25,4 @@ public class Player extends AbstractEntity {
     public void create() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    
 }
