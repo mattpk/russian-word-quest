@@ -101,7 +101,7 @@ public abstract class AbstractEntity implements Entity {
     }
 
     public void setLeft(boolean left) {
-        this.right = right;
+        this.left = left;
     }
     
     /**

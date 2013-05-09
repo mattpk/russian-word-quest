@@ -12,8 +12,13 @@ public class Runner implements Runnable {
     @Override
     public void run() {
         while (true) {
+        
+          
+          
             Instances.player.update();
             image.render();
+          
+            
             try {
                 Thread.sleep(10);
             }
