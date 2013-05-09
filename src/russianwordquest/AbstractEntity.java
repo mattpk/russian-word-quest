@@ -1,4 +1,3 @@
-
 package russianwordquest;
 
 /**
@@ -9,34 +8,27 @@ public abstract class AbstractEntity implements Entity {
 
     private float x;
     private float y;
-
     private boolean up, down, left, right;
-    
-    public void update()
-    {
+
+    public void update() {
         move();
     }
-    
-    public void move()
-    {
-        if (left)
-        {
+
+    public void move() {
+        if (left) {
             x--;
         }
-        if (right)
-        {
+        if (right) {
             x++;
         }
-        if (up)
-        {
+        if (up) {
             y++;
         }
-        if (down)
-        {
+        if (down) {
             y--;
         }
     }
-    
+
     /**
      * @return the x
      */
@@ -64,7 +56,7 @@ public abstract class AbstractEntity implements Entity {
     public void setY(float y) {
         this.y = y;
     }
-    
+
     /**
      * @return the up
      */
@@ -103,7 +95,7 @@ public abstract class AbstractEntity implements Entity {
     public void setLeft(boolean left) {
         this.left = left;
     }
-    
+
     /**
      * @return the right
      */
@@ -117,5 +109,4 @@ public abstract class AbstractEntity implements Entity {
     public void setRight(boolean right) {
         this.right = right;
     }
-    
 }

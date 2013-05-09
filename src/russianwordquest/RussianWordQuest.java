@@ -11,6 +11,7 @@ public class RussianWordQuest {
     public static final int DISPLAY_WIDTH = 640;
     private static GameState state = GameState.INTRO;
     public static boolean isRunning = false;
+    public static Player player;
     public static final Logger LOGGER = Logger.getLogger(RussianWordQuest.class.getName());
 
     static {
@@ -21,7 +22,13 @@ public class RussianWordQuest {
         }
     }
 
+    public RussianWordQuest() {
+        System.out.println("initliazed entities");
+        initEntities();
+    }
+
     public static void main(String[] args) {
+        RussianWordQuest game = new RussianWordQuest();
         Runner engine = null;
         try {
             engine = new Runner();
@@ -36,15 +43,12 @@ public class RussianWordQuest {
 
     }
 
-    public RussianWordQuest() {
-    }
-
     public void initGame() {
         Instances.getEntities().clear();
     }
 
-    public void initEntities() {
-        Instances.player = new Player();
-        Instances.getEntities().add(Instances.player);
+    public static void initEntities() {
+        player = new Player();
+        Instances.getEntities().add(player);
     }
 }

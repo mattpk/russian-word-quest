@@ -35,7 +35,7 @@ public class Runner implements Runnable {
 
             updateEngine(delta);
             
-            Instances.player.update();
+            RussianWordQuest.player.update();
             image.render();
 
             try {
