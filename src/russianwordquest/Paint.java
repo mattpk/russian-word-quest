@@ -2,11 +2,14 @@ package russianwordquest;
 
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -47,6 +50,12 @@ public final class Paint {
 
         canvas.setBackground(Color.black);
         canvas.addKeyListener(new EventHandler());
+
+        BufferedImage blankCursorImg =
+                new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
+        Cursor blankCursor = Toolkit.getDefaultToolkit().
+                createCustomCursor(blankCursorImg, new Point(0, 0), null);
+        canvas.setCursor(blankCursor);
 
     }
 

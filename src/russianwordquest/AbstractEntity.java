@@ -20,7 +20,7 @@ public abstract class AbstractEntity implements Entity {
         Image image = null;
         
         try{
-            image = Toolkit.getDefaultToolkit().getImage("");
+            image = Toolkit.getDefaultToolkit().getImage(getImageURL());
         }
         catch (Exception e)
         {
