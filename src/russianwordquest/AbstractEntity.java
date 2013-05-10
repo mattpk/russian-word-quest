@@ -24,7 +24,6 @@ public abstract class AbstractEntity implements Entity {
         }
         catch (Exception e)
         {
-            e.printStackTrace();
         }
         return image;
     }
