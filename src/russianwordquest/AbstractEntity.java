@@ -1,5 +1,9 @@
 package russianwordquest;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.io.IOException;
+
 /**
  *
  * @author jonathan2
@@ -9,7 +13,22 @@ public abstract class AbstractEntity implements Entity {
     private float x;
     private float y;
     private boolean up, down, left, right;
+    private String imageURL;
 
+    public Image getImage()
+    {   
+        Image image = null;
+        
+        try{
+            image = Toolkit.getDefaultToolkit().getImage("");
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return image;
+    }
+    
     public void update() {
         move();
     }
@@ -27,6 +46,16 @@ public abstract class AbstractEntity implements Entity {
         if (down) {
             y--;
         }
+    }
+    
+    public int getXSize()
+    {
+        return getImage().getWidth(null);
+    }
+    
+    public int getYSize()
+    {
+        return getImage().getHeight(null);
     }
 
     /**
@@ -108,5 +137,19 @@ public abstract class AbstractEntity implements Entity {
      */
     public void setRight(boolean right) {
         this.right = right;
+    }
+
+    /**
+     * @return the imageURL
+     */
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    /**
+     * @param imageURL the imageURL to set
+     */
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 }

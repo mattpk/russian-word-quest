@@ -5,10 +5,9 @@ package russianwordquest;
  * @author jonathan2
  */
 public class Runner implements Runnable {
-    
+
     private int fps;
     private long lastFpsTime;
-    
     long previousLoopTime = System.nanoTime();
     final int TARGET_FPS = 60;
     final long IDEAL_TIME = 1000000000 / TARGET_FPS;
@@ -17,26 +16,25 @@ public class Runner implements Runnable {
     @Override
     public void run() {
         while (RussianWordQuest.isRunning) {
-            
+
             long now = System.nanoTime();
             long updateLength = now - previousLoopTime;
             previousLoopTime = now;
-            double delta = updateLength /  ((double)IDEAL_TIME);
-            
+            double delta = updateLength / ((double) IDEAL_TIME);
+
             lastFpsTime += updateLength;
             fps++;
-            
-            if (lastFpsTime >= 1000000000)
-            {
+
+            if (lastFpsTime >= 1000000000) {
                 System.out.println("(FPS: " + fps + ")");
                 lastFpsTime = 0;
                 fps = 0;
             }
 
             updateEngine(delta);
-            
+
             RussianWordQuest.player.update();
-            image.render();
+            //image.render();
 
             try {
                 Thread.sleep((previousLoopTime - System.nanoTime() + IDEAL_TIME) / 1000000);
@@ -47,7 +45,11 @@ public class Runner implements Runnable {
 
     private void updateEngine(double delta) {
         //time related things must be multiplied by delta
-        
         //non time related ignore delta 
+
+        for (int i = 0; i < Instances.getEntities().size(); i++) {
+            AbstractEntity entity = (AbstractEntity) Instances.getEntities().get(i);
+            image.render(entity);
+        }
     }
 }

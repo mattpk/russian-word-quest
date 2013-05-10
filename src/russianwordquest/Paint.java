@@ -4,6 +4,8 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -12,7 +14,7 @@ import javax.swing.JPanel;
  *
  * @author jonathan2
  */
-public class Paint {
+public final class Paint {
 
     JFrame frame;
     Canvas canvas;
@@ -48,16 +50,19 @@ public class Paint {
 
     }
 
-    public void render() {
+    public void render(AbstractEntity entity) {
         Graphics2D graphics;
         graphics = (Graphics2D) buffer.getDrawGraphics();
         graphics.clearRect(0, 0, DISPLAY_WIDTH, DISPLAY_HEIGHT);
-        render(graphics);
+        render(graphics, entity);
 
         graphics.dispose();
         buffer.show();
     }
 
-    private void render(Graphics2D graphics) {
+    private void render(Graphics2D graphics, AbstractEntity entity) {
+        Image image = Toolkit.getDefaultToolkit().getImage((entity.getImageURL()));
+        graphics.drawImage(image, 10, 10, canvas);
+        graphics.finalize();
     }
 }
