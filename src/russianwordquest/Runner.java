@@ -36,9 +36,13 @@ public class Runner implements Runnable {
             RussianWordQuest.player.update();
             //image.render();
 
-            try {
-                Thread.sleep((previousLoopTime - System.nanoTime() + IDEAL_TIME) / 1000000);
-            } catch (InterruptedException e) {
+            long sleep = (previousLoopTime - System.nanoTime() + IDEAL_TIME) / 1000000;
+
+            if (sleep > 0) {
+                try {
+                    Thread.sleep(sleep);
+                } catch (InterruptedException e) {
+                }
             }
         }
     }
