@@ -23,17 +23,19 @@ public final class RussianWordQuest {
     }
 
     public RussianWordQuest() {
-        System.out.println("initliazed entities");
-        initEntities();
+        System.out.println("Started up.");
     }
 
     public static void main(String[] args) {
         RussianWordQuest game = new RussianWordQuest();
         Runner engine = null;
         try {
+            game.initGame();
+            game.initEntities();
             engine = new Runner();
             new Thread(engine).start();
             isRunning = true;
+            System.out.println("Runner called");
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.toString(), e);
         } finally {
@@ -47,8 +49,10 @@ public final class RussianWordQuest {
         Instances.getEntities().clear();
     }
 
-    public static void initEntities() {
+    public void initEntities() {
         player = new Player();
+        player.setLoc(100, 100);
         Instances.getEntities().add(player);
+        System.out.println("initliazed entities");
     }
 }

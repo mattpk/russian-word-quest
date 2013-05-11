@@ -10,6 +10,7 @@ import java.awt.event.KeyEvent;
 public class EventHandler extends KeyAdapter {
 
     public EventHandler() {
+        System.out.println("EventHandler Initialized");
     }
 
     public void keyPressed(KeyEvent key) {

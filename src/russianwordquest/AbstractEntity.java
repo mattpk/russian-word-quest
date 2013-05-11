@@ -10,8 +10,8 @@ import java.io.IOException;
  */
 public abstract class AbstractEntity implements Entity {
 
-    private float x;
-    private float y;
+    private int x;
+    private int y;
     private boolean up, down, left, right;
     private String imageURL;
 
@@ -40,10 +40,10 @@ public abstract class AbstractEntity implements Entity {
             x++;
         }
         if (up) {
-            y++;
+            y--;
         }
         if (down) {
-            y--;
+            y++;
         }
     }
     
@@ -60,28 +60,28 @@ public abstract class AbstractEntity implements Entity {
     /**
      * @return the x
      */
-    public float getX() {
+    public int getX() {
         return x;
     }
 
     /**
      * @param x the x to set
      */
-    public void setX(float x) {
+    public void setX(int x) {
         this.x = x;
     }
 
     /**
      * @return the y
      */
-    public float getY() {
+    public int getY() {
         return y;
     }
 
     /**
      * @param y the y to set
      */
-    public void setY(float y) {
+    public void setY(int y) {
         this.y = y;
     }
 

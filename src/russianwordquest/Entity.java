@@ -6,17 +6,15 @@ package russianwordquest;
  */
 interface Entity {
 
-    public float getX();
+    public int getX();
 
-    public float getY();
+    public int getY();
 
-    public void setX(float x);
+    public void setX(int x);
 
-    public void setY(float y);
+    public void setY(int y);
 
-    public void setLoc(float x, float y);
-
-    public void setUp();
+    public void setLoc(int x, int y);
 
     public void destroy();
 

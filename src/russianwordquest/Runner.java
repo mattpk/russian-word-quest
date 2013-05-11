@@ -15,7 +15,7 @@ public class Runner implements Runnable {
 
     @Override
     public void run() {
-        while (RussianWordQuest.isRunning) {
+        while (true) {
 
             long now = System.nanoTime();
             long updateLength = now - previousLoopTime;
@@ -47,9 +47,10 @@ public class Runner implements Runnable {
         //time related things must be multiplied by delta
         //non time related ignore delta 
 
-        for (int i = 0; i < Instances.getEntities().size(); i++) {
-            AbstractEntity entity = (AbstractEntity) Instances.getEntities().get(i);
-            image.render(entity);
-        }
+        /*for (int i = 0; i < Instances.getEntities().size(); i++) {
+         AbstractEntity entity = (AbstractEntity) Instances.getEntities().get(i);
+         }*/
+        image.render(RussianWordQuest.player);
+
     }
 }

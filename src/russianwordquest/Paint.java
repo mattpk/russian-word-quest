@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
-import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
@@ -70,8 +69,8 @@ public final class Paint {
     }
 
     private void render(Graphics2D graphics, AbstractEntity entity) {
-        Image image = Toolkit.getDefaultToolkit().getImage((entity.getImageURL()));
-        graphics.drawImage(image, 10, 10, canvas);
+        graphics.drawImage(entity.getImage(), entity.getX(), entity.getY(), null);
+        Toolkit.getDefaultToolkit().sync();
         graphics.finalize();
     }
 }
