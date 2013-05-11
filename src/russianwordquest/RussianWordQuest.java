@@ -32,7 +32,7 @@ public final class RussianWordQuest {
         try {
             game.initGame();
             game.initEntities();
-            engine = new Runner();
+            engine = new Runner(true);
             new Thread(engine).start();
             isRunning = true;
             System.out.println("Runner called");

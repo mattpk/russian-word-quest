@@ -12,10 +12,17 @@ public class Runner implements Runnable {
     final int TARGET_FPS = 60;
     final long IDEAL_TIME = 1000000000 / TARGET_FPS;
     Paint image = new Paint();
+    
+    private boolean runFlag = false;
+    
+    public Runner(boolean runFlag)
+    {
+        this.runFlag = runFlag;
+    }
 
     @Override
     public void run() {
-        while (true) {
+        while (runFlag) {
 
             long now = System.nanoTime();
             long updateLength = now - previousLoopTime;
@@ -45,6 +52,11 @@ public class Runner implements Runnable {
                 }
             }
         }
+    }
+    
+    public void stop()
+    {
+        runFlag = false;
     }
 
     private void updateEngine(double delta) {
