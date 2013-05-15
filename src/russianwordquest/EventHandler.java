@@ -52,5 +52,11 @@ public class EventHandler extends KeyAdapter {
     }
 
     public void keyTyped(KeyEvent key) {
+        if (key.getKeyCode() == KeyEvent.VK_ESCAPE) {
+            System.out.println("hit escape key");
+            System.out.println("key " + key.getKeyChar());
+
+            RussianWordQuest.gameMenu = new InGameMenu();
+        }
     }
 }

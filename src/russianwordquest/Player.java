@@ -14,28 +14,34 @@ public class Player extends AbstractEntity {
     private int x;
     private int y;
     private boolean up, down, left, right;
+    
+    int width;
+    int height;
 
     public Player() {
         ImageIcon icon = new ImageIcon(this.getClass().getResource(imageURL));
         image = icon.getImage();
+        width = 32;
+        height = 32;
     }
 
     @Override
-    public void move() {
+    public void move(double delta) {
         if (left) {
-            x--;
+            x --;
         }
         if (right) {
-            x++;
+            x ++;
         }
         if (up) {
-            y--;
+            y --;
         }
         if (down) {
-            y++;
+            y ++;
         }
     }
 
+   
     @Override
     public void setLoc(int x, int y) {
         this.x = x;

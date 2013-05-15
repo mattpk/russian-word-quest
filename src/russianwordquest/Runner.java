@@ -12,11 +12,10 @@ public class Runner implements Runnable {
     final int TARGET_FPS = 60;
     final long IDEAL_TIME = 1000000000 / TARGET_FPS;
     Paint image = new Paint();
-    
     private boolean runFlag = false;
+    public static double delta;
     
-    public Runner(boolean runFlag)
-    {
+    public Runner(boolean runFlag) {
         this.runFlag = runFlag;
     }
 
@@ -27,7 +26,7 @@ public class Runner implements Runnable {
             long now = System.nanoTime();
             long updateLength = now - previousLoopTime;
             previousLoopTime = now;
-            double delta = updateLength / ((double) IDEAL_TIME);
+            delta = updateLength / ((double) IDEAL_TIME);
 
             lastFpsTime += updateLength;
             fps++;
@@ -40,8 +39,7 @@ public class Runner implements Runnable {
 
             updateEngine(delta);
 
-            RussianWordQuest.player.update();
-            //image.render();
+            RussianWordQuest.player.update(delta);
 
             long sleep = (previousLoopTime - System.nanoTime() + IDEAL_TIME) / 1000000;
 
@@ -53,9 +51,8 @@ public class Runner implements Runnable {
             }
         }
     }
-    
-    public void stop()
-    {
+
+    public void stop() {
         runFlag = false;
     }
 
@@ -63,10 +60,9 @@ public class Runner implements Runnable {
         //time related things must be multiplied by delta
         //non time related ignore delta 
 
-        /*for (int i = 0; i < Instances.getEntities().size(); i++) {
-         AbstractEntity entity = (AbstractEntity) Instances.getEntities().get(i);
-         }*/
-        image.render(RussianWordQuest.player);
-
+        for (int i = 0; i < Instances.getEntities().size(); i++) {
+            AbstractEntity entity = (AbstractEntity) Instances.getEntities().get(i);
+            image.render(entity);
+        }
     }
 }

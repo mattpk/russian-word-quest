@@ -1,10 +1,15 @@
 package russianwordquest;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
+
 public class Tile {
 
     private int x, y;
     private boolean collision;
     private TileType type;
+    public static int size = 32;
 
     public Tile() {
         x = 0;

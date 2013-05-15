@@ -28,23 +28,12 @@ public abstract class AbstractEntity implements Entity {
         return image;
     }
     
-    public void update() {
-        move();
+    public void update(double delta) {
+        move(Runner.delta);
     }
 
-    public void move() {
-        if (left) {
-            x--;
-        }
-        if (right) {
-            x++;
-        }
-        if (up) {
-            y--;
-        }
-        if (down) {
-            y++;
-        }
+    public void move(double delta) {
+
     }
     
     public int getXSize()

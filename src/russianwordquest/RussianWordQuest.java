@@ -13,6 +13,7 @@ public final class RussianWordQuest {
     public static boolean isRunning = false;
     public static Player player;
     public static final Logger LOGGER = Logger.getLogger(RussianWordQuest.class.getName());
+    public static InGameMenu gameMenu;
 
     static {
         try {
