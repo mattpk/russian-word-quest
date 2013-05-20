@@ -23,6 +23,20 @@ public final class RussianWordQuest {
         }
     }
 
+    /**
+     * @return the state
+     */
+    public static GameState getState() {
+        return state;
+    }
+
+    /**
+     * @param aState the state to set
+     */
+    public static void setState(GameState aState) {
+        state = aState;
+    }
+
     public RussianWordQuest() {
         System.out.println("Started up.");
     }
@@ -36,7 +50,6 @@ public final class RussianWordQuest {
             engine = new Runner(true);
             new Thread(engine).start();
             isRunning = true;
-            System.out.println("Runner called");
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.toString(), e);
         } finally {
@@ -48,6 +61,7 @@ public final class RussianWordQuest {
 
     public void initGame() {
         Instances.getEntities().clear();
+        setState(GameState.MAIN_MENU);
     }
 
     public void initEntities() {

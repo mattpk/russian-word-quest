@@ -18,11 +18,11 @@ import javax.swing.JPanel;
  */
 public final class Paint {
     
-    JFrame frame;
+    public static JFrame frame;
     Canvas canvas;
     BufferStrategy buffer;
-    private final int DISPLAY_HEIGHT = 480;
-    private final int DISPLAY_WIDTH = 640;
+    public static final int DISPLAY_HEIGHT = 480;
+    public static final int DISPLAY_WIDTH = 640;
     private final String NAME = "Russian Word Quest";
     
     Paint() {
