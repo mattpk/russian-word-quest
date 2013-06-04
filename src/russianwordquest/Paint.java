@@ -70,13 +70,15 @@ public final class Paint {
         graphics = (Graphics2D) buffer.getDrawGraphics();
       //  graphics.clearRect(0, 0, DISPLAY_WIDTH, DISPLAY_HEIGHT);
         
-        if (object instanceof AbstractEntity)
-          render(graphics, (AbstractEntity) object);
         if (object instanceof Tile)
           render (graphics, (Tile)object);
-        
-        graphics.dispose();
-        buffer.show();
+        if (object instanceof AbstractEntity)
+        {
+          render(graphics, (AbstractEntity) object);          
+          graphics.dispose();
+          buffer.show();
+        }
+       
     }
     
     private void render(Graphics2D graphics, AbstractEntity entity) {

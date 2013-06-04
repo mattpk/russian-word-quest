@@ -103,5 +103,7 @@ public class Runner implements Runnable {
             AbstractEntity entity = (AbstractEntity) Instances.getEntities().get(i);
             image.render(entity);
         }
+        
+        
     }
 }
