@@ -9,5 +9,5 @@ package russianwordquest;
  * @author jonathan2
  */
 public enum TileType {
-    GRASS, ROOF, ROOFLEFT, ROOFRIGHT, BRICK, DOOR, ROCK, TREE; //add all types of tiles
+    GRASS, DIRT, TREE, STONE; //add all types of tiles
 }
