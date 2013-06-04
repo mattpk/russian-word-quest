@@ -11,6 +11,7 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import java.awt.*;
 
 /**
  *
@@ -42,7 +43,13 @@ public final class Paint {
         frame.setVisible(true);
         
         panel.add(canvas);
-        canvas.createBufferStrategy(2);
+        try{
+        canvas.createBufferStrategy(2, new BufferCapabilities(new ImageCapabilities(true), new ImageCapabilities(true), null));
+        }
+        catch(AWTException e)
+        {
+          
+        }
         buffer = canvas.getBufferStrategy();
         
         canvas.requestFocus();
@@ -57,12 +64,11 @@ public final class Paint {
         canvas.setCursor(blankCursor);
         
     }
-
     
     public void render(Object object) {
         Graphics2D graphics;
         graphics = (Graphics2D) buffer.getDrawGraphics();
-        graphics.clearRect(0, 0, DISPLAY_WIDTH, DISPLAY_HEIGHT);
+      //  graphics.clearRect(0, 0, DISPLAY_WIDTH, DISPLAY_HEIGHT);
         
         if (object instanceof AbstractEntity)
           render(graphics, (AbstractEntity) object);
@@ -74,7 +80,7 @@ public final class Paint {
     }
     
     private void render(Graphics2D graphics, AbstractEntity entity) {
-        graphics.drawImage(entity.getImage(), entity.getX(), entity.getY(), null);
+        graphics.drawImage (entity.getImage(), entity.getX(), entity.getY(), null);
         Toolkit.getDefaultToolkit().sync();
         graphics.finalize();
     }
@@ -82,7 +88,5 @@ public final class Paint {
     private void render (Graphics2D graphics, Tile tile)
     {
       graphics.drawImage(tile.getImage(), tile.getX()*32, tile.getY()*32,null);
-      Toolkit.getDefaultToolkit().sync();
-      graphics.finalize();
     }
 }

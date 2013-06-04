@@ -88,7 +88,6 @@ public class Runner implements Runnable {
     private void updateEngine(double delta) {
         //time related things must be multiplied by delta
         //non time related ignore delta 
-
       //draws tiles
       
       for (int x = 0; x < overworld.getCols(); x++)
