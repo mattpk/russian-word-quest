@@ -9,17 +9,16 @@ import javax.swing.ImageIcon;
  */
 public class Player extends AbstractEntity {
 
-    private String imageURL = "resources/images/player.png";
+    private String imageURL = "resources/images/sprites/wizard_down.png";
     private Image image;
     private int x;
     private int y;
     private boolean up, down, left, right;
-    
     int width;
     int height;
 
     public Player() {
-        ImageIcon icon = new ImageIcon(this.getClass().getResource(imageURL));
+        ImageIcon icon = new ImageIcon(this.getClass().getResource(getImageURL()));
         image = icon.getImage();
         width = 32;
         height = 32;
@@ -27,21 +26,26 @@ public class Player extends AbstractEntity {
 
     @Override
     public void move(double delta) {
-        if (left) {
-            x -=32;
+        if (left && (this.getX() > 320)) {
+            setImageURL("resources/images/sprites/wizard_left.png");
+            x -= 32;
         }
-        if (right) {
-            x +=32;
+        if (right && (this.getX() < (Runner.overworld.getRows() * 32))) {
+            setImageURL("resources/images/sprites/wizard_right.png");
+            x += 32;
         }
-        if (up) {
-            y -=32;
+        if (up && (this.getY() > 240)) {
+            setImageURL("resources/images/sprites/wizard_up.png");
+            y -= 32;
         }
-        if (down) {
-            y +=32;
+        if (down && (this.getY() < (Runner.overworld.getCols() * 32))) {
+            setImageURL("resources/images/sprites/wizard_down.png");
+            y += 32;
         }
+        ImageIcon icon = new ImageIcon(this.getClass().getResource(getImageURL()));
+        image = icon.getImage();
     }
 
-   
     @Override
     public void setLoc(int x, int y) {
         this.x = x;
@@ -111,5 +115,19 @@ public class Player extends AbstractEntity {
      */
     public void setRight(boolean right) {
         this.right = right;
+    }
+
+    /**
+     * @return the imageURL
+     */
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    /**
+     * @param imageURL the imageURL to set
+     */
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 }

@@ -14,8 +14,7 @@ public class Runner implements Runnable {
     Paint image = new Paint();
     private boolean runFlag = false;
     public static double delta;
-    
-    Map overworld;
+    public static Map overworld;
 
     public Runner(boolean runFlag) {
         this.runFlag = runFlag;
@@ -25,15 +24,15 @@ public class Runner implements Runnable {
     public void run() {
         if (getGameState() == GameState.MAIN_MENU) {
             MainMenu menu = new MainMenu(Paint.DISPLAY_WIDTH, Paint.DISPLAY_HEIGHT);
-            
+
             Paint.frame.getContentPane().removeAll();
             Paint.frame.add(menu);
             Paint.frame.getContentPane().repaint();
             Paint.frame.validate();
-            overworld = MapUtilities.readMap("russianwordquest/resources/maps/overworld.txt");
+            overworld = MapUtilities.readMap("src/russianwordquest/resources/maps/overworld.txt");
             System.out.println("loaded map");
             System.out.println(overworld.getCols());
-            
+
             setGameState(GameState.GAME);
         }
 
@@ -88,35 +87,36 @@ public class Runner implements Runnable {
     private void updateEngine(double delta) {
         //time related things must be multiplied by delta
         //non time related ignore delta 
-      //draws tiles
-      Tile[][] viewTiles = new Tile[20][15];
-      
-      for (int x = 0; x < 20; x++)
-      {
-        for (int y = 0; y < 15; y++)
-        {
-          viewTiles[x][y] = overworld.getTile(x+((RussianWordQuest.player.getX()-320)/32),y+((RussianWordQuest.player.getY()-240)/32));
-          viewTiles[x][y].setX(x);
-          viewTiles[x][y].setY(y);
+
+        //draws tiles
+        Tile[][] viewTiles = new Tile[20][15];
+
+        for (int x = 0; x < 20; x++) {
+            for (int y = 0; y < 15; y++) {
+                if ((x + (RussianWordQuest.player.getX() - 320) / 32) >= 0 && (x + (RussianWordQuest.player.getX() - 320) / 32) < 40) {
+                    if (y + ((RussianWordQuest.player.getY() - 240) / 32) >= 0 && (y + ((RussianWordQuest.player.getY() - 240) / 32) < 30)) {
+                            viewTiles[x][y] = overworld.getTile(x + ((RussianWordQuest.player.getX() - 320) / 32), y + ((RussianWordQuest.player.getY() - 240) / 32));
+                            viewTiles[x][y].setX(x);
+                            viewTiles[x][y].setY(y);
+                    }
+                }
+            }
         }
-      }
-      System.out.println(viewTiles[0][0].toString());
-      Map view = new Map(15,20,viewTiles);
-      
-      for (int x = 0; x < view.getRows(); x++)
-      {
-        for (int y = 0; y < view.getCols(); y++)
-        {
-          image.render(view.getTile(y,x));
+        //System.out.println(viewTiles[0][0].toString());
+        Map view = new Map(15, 20, viewTiles);
+
+        for (int x = 0; x < view.getRows(); x++) {
+            for (int y = 0; y < view.getCols(); y++) {
+                image.render(view.getTile(y, x));
+            }
         }
-      }
-      
-      // draws entities
+
+        // draws entities
         for (int i = 0; i < Instances.getEntities().size(); i++) {
             AbstractEntity entity = (AbstractEntity) Instances.getEntities().get(i);
             image.render(entity);
         }
-        
-        
+
+
     }
 }

@@ -84,7 +84,7 @@ public final class Paint {
   private void render(Graphics2D graphics, AbstractEntity entity) {
     if (entity instanceof Player)
     {
-      graphics.drawImage(entity.getImage(),320,240,null);
+      graphics.drawImage(entity.getImage(),316,246,null);
     }
     else
       graphics.drawImage (entity.getImage(), entity.getX(), entity.getY(), null);
