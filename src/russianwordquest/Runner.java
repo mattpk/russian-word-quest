@@ -89,12 +89,25 @@ public class Runner implements Runnable {
         //time related things must be multiplied by delta
         //non time related ignore delta 
       //draws tiles
+      Tile[][] viewTiles = new Tile[20][15];
       
-      for (int x = 0; x < overworld.getCols(); x++)
+      for (int x = 0; x < 20; x++)
       {
-        for (int y = 0; y < overworld.getRows(); y++)
+        for (int y = 0; y < 15; y++)
         {
-          image.render(overworld.getTile(x,y));
+          viewTiles[x][y] = overworld.getTile(x+((RussianWordQuest.player.getX()-320)/32),y+((RussianWordQuest.player.getY()-240)/32));
+          viewTiles[x][y].setX(x);
+          viewTiles[x][y].setY(y);
+        }
+      }
+      System.out.println(viewTiles[0][0].toString());
+      Map view = new Map(15,20,viewTiles);
+      
+      for (int x = 0; x < view.getRows(); x++)
+      {
+        for (int y = 0; y < view.getCols(); y++)
+        {
+          image.render(view.getTile(y,x));
         }
       }
       
@@ -103,5 +116,7 @@ public class Runner implements Runnable {
             AbstractEntity entity = (AbstractEntity) Instances.getEntities().get(i);
             image.render(entity);
         }
+        
+        
     }
 }

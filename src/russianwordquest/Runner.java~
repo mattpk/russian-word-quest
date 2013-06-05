@@ -14,6 +14,8 @@ public class Runner implements Runnable {
     Paint image = new Paint();
     private boolean runFlag = false;
     public static double delta;
+    
+    Map overworld;
 
     public Runner(boolean runFlag) {
         this.runFlag = runFlag;
@@ -28,9 +30,14 @@ public class Runner implements Runnable {
             Paint.frame.add(menu);
             Paint.frame.getContentPane().repaint();
             Paint.frame.validate();
+            overworld = MapUtilities.readMap("russianwordquest/resources/maps/overworld.txt");
+            System.out.println("loaded map");
+            System.out.println(overworld.getCols());
+            
             setGameState(GameState.GAME);
         }
 
+        // start FPS section
         if (getGameState() == GameState.GAME) {
             Paint.frame.getContentPane().removeAll();
             image = new Paint();
@@ -63,6 +70,7 @@ public class Runner implements Runnable {
                 }
             }
         }
+
     }
 
     public void stop() {
@@ -80,10 +88,22 @@ public class Runner implements Runnable {
     private void updateEngine(double delta) {
         //time related things must be multiplied by delta
         //non time related ignore delta 
-
+      //draws tiles
+      
+      for (int x = 0; x < overworld.getCols(); x++)
+      {
+        for (int y = 0; y < overworld.getRows(); y++)
+        {
+          image.render(overworld.getTile(x,y));
+        }
+      }
+      
+      // draws entities
         for (int i = 0; i < Instances.getEntities().size(); i++) {
             AbstractEntity entity = (AbstractEntity) Instances.getEntities().get(i);
             image.render(entity);
         }
+        
+        
     }
 }

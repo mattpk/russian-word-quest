@@ -42,7 +42,28 @@ public class MapUtilities {
         for (int y = 0; y < cols; y++) {
           if (take.charAt(y) == 'G') {
             grid[y][x] = new Tile(y, x, false,TileType.GRASS);
-          } else {
+          } 
+          else if (take.charAt(y) == 'T')
+          {
+            grid[y][x] = new Tile(y,x, true, TileType.TREE);
+          }
+          else if (take.charAt(y) == 'D')
+          {
+            grid[y][x] = new Tile(y,x, false, TileType.DOOR);
+          }
+          else if (take.charAt(y) == 'd')
+          {
+            grid[y][x] = new Tile(y,x,true, TileType.ROOFLEFT);
+          }
+          else if (take.charAt(y) == 'b')
+          {
+            grid[y][x] = new Tile(y,x,true, TileType.ROOFRIGHT);
+          }
+          else if (take.charAt(y) == 'R')
+          {
+            grid[y][x] = new Tile (y, x,true, TileType.ROOF);
+          }
+          else {
             grid[y][x] = new Tile(y, x, true,TileType.ROCK);
           }
         }

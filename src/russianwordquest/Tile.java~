@@ -3,6 +3,8 @@ package russianwordquest;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import java.awt.Image;
 
 public class Tile {
 
@@ -10,7 +12,8 @@ public class Tile {
     private boolean collision;
     private TileType type;
     public static int size = 32;
-
+    private Image image;
+    
     public Tile() {
         x = 0;
         y = 0;
@@ -34,6 +37,12 @@ public class Tile {
         this.y = y;
         this.collision = collision;
         this.type = type;
+        
+        String imageURL;
+        if (type == TileType.GRASS) imageURL = "resources/images/grass.PNG";
+        else imageURL = "resources/images/rock.PNG";
+        ImageIcon icon = new ImageIcon(this.getClass().getResource(imageURL));
+        image = icon.getImage();
     }
 
     public int getX() {
@@ -42,6 +51,11 @@ public class Tile {
 
     public int getY() {
         return y;
+    }
+    
+    public Image getImage()
+    {
+      return image;
     }
 
     public boolean getCollision() {

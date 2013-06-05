@@ -53,6 +53,14 @@ public class Tile {
         return y;
     }
     
+    public void setX(int x)
+    {
+      this.x = x;
+    }
+    public void setY(int y)
+    {
+      this.y = y;
+    }
     public Image getImage()
     {
       return image;
@@ -65,4 +73,11 @@ public class Tile {
     public boolean equals(Tile loc) {
         return (loc.getX() == x && loc.getY() == y);
     }
+    
+    public String toString()
+    {
+      if (type == TileType.ROOF) return "R";
+      return "G";
+    }
+      
 }

@@ -28,16 +28,16 @@ public class Player extends AbstractEntity {
     @Override
     public void move(double delta) {
         if (left) {
-            x --;
+            x -=32;
         }
         if (right) {
-            x ++;
+            x +=32;
         }
         if (up) {
-            y --;
+            y -=32;
         }
         if (down) {
-            y ++;
+            y +=32;
         }
     }
 

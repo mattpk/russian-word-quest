@@ -6,7 +6,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public final class RussianWordQuest {
-
     public static final int DISPLAY_HEIGHT = 480;
     public static final int DISPLAY_WIDTH = 640;
     private static GameState state = GameState.INTRO;
@@ -66,7 +65,7 @@ public final class RussianWordQuest {
 
     public void initEntities() {
         player = new Player();
-        player.setLoc(100, 100);
+        player.setLoc(320, 240);
         Instances.getEntities().add(player);
         System.out.println("initliazed entities");
     }
