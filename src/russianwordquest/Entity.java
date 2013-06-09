@@ -1,5 +1,7 @@
 package russianwordquest;
 
+import java.awt.Image;
+
 /**
  *
  * @author jonathan2
@@ -19,4 +21,6 @@ interface Entity {
     public void destroy();
 
     public void create();
+    
+    public Image getImage();
 }

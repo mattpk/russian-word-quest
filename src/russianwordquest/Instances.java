@@ -8,12 +8,12 @@ import java.util.ArrayList;
  */
 public class Instances {
 
-    private static ArrayList<AbstractEntity> entities = new ArrayList<AbstractEntity>();
+    private static ArrayList<Entity> entities = new ArrayList<Entity>();
 
     /**
      * @return the entities
      */
-    public static ArrayList<AbstractEntity> getEntities() {
+    public static ArrayList<Entity> getEntities() {
         return entities;
     }
 }

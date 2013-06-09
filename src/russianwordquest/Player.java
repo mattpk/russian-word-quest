@@ -14,6 +14,7 @@ public class Player extends AbstractEntity {
     private int x;
     private int y;
     private boolean up, down, left, right;
+    private boolean talked1, talked2, talked3;
     int width;
     int height;
 
@@ -26,20 +27,69 @@ public class Player extends AbstractEntity {
 
     @Override
     public void move(double delta) {
-        if (left && (this.getX() > 320)) {
+
+        try {
+            Thread.sleep(50);
+        } catch (Exception e) {
+        };
+
+        int nextTileX = x / 32;
+        int nextTileY = y / 32;
+
+        if (left) {
             setImageURL("resources/images/sprites/wizard_left.png");
+
+            nextTileX--;
+        }
+        if (right) {
+            setImageURL("resources/images/sprites/wizard_right.png");
+
+            nextTileX++;
+        }
+        if (up) {
+            setImageURL("resources/images/sprites/wizard_up.png");
+
+            nextTileY--;
+        }
+        if (down) {
+            setImageURL("resources/images/sprites/wizard_down.png");
+
+            nextTileY++;
+        }
+
+        if (Runner.overworld.getTile(nextTileX, nextTileY).getType() == TileType.NPC1 && !talked1) {
+            System.out.println("ready to talk!");
+            Runner.stop();
+
+            NPCDialog npcDialog = new NPCDialog(Paint.frame, false, 1, "вода", "Water");
+            npcDialog.setVisible(true);
+            talked1 = true;
+        }
+
+        if (Runner.overworld.getTile(nextTileX, nextTileY).getType() == TileType.NPC2 && !talked2) {
+            
+            talked2 = true;
+        }
+
+        if (Runner.overworld.getTile(nextTileX, nextTileY).getType() == TileType.NPC3 && !talked3) {
+            
+            talked3 = true;
+        }
+
+        if (Runner.overworld.getTile(nextTileX, nextTileY).getCollision()) {
+            return;
+        }
+
+        if (left && (this.getX() > 320)) {
             x -= 32;
         }
-        if (right && (this.getX() < (Runner.overworld.getRows() * 32))) {
-            setImageURL("resources/images/sprites/wizard_right.png");
+        if (right && (this.getX() < (Runner.overworld.getCols() * 32) - 320)) {
             x += 32;
         }
-        if (up && (this.getY() > 240)) {
-            setImageURL("resources/images/sprites/wizard_up.png");
+        if (up && (this.getY() > 256)) {
             y -= 32;
         }
-        if (down && (this.getY() < (Runner.overworld.getCols() * 32))) {
-            setImageURL("resources/images/sprites/wizard_down.png");
+        if (down && (this.getY() < (Runner.overworld.getRows() * 32) - 256)) {
             y += 32;
         }
         ImageIcon icon = new ImageIcon(this.getClass().getResource(getImageURL()));

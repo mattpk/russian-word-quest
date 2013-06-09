@@ -65,7 +65,7 @@ public final class RussianWordQuest {
 
     public void initEntities() {
         player = new Player();
-        player.setLoc(320, 240);
+        player.setLoc(320, 256);
         Instances.getEntities().add(player);
         System.out.println("initliazed entities");
     }

@@ -4,7 +4,6 @@ package russianwordquest;
  *
  * @author Matthew Chung
  */
-import java.util.*;
 
 public class Map {
 

@@ -1,17 +1,10 @@
 package russianwordquest;
 
-import java.awt.Canvas;
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.Point;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import java.awt.*;
 
 /**
  *
@@ -72,22 +65,24 @@ public final class Paint {
     
     if (object instanceof Tile)
       render (graphics, (Tile)object);
-    if (object instanceof AbstractEntity)
+    if (object instanceof Entity)
     {
-      render(graphics, (AbstractEntity) object);          
+      render(graphics, (Entity) object);          
       graphics.dispose();
       buffer.show();
     }
     
   }
   
-  private void render(Graphics2D graphics, AbstractEntity entity) {
+  private void render(Graphics2D graphics, Entity entity) {
     if (entity instanceof Player)
     {
-      graphics.drawImage(entity.getImage(),316,246,null);
+      graphics.drawImage(entity.getImage(),320,256,null);
     }
     else
+    {
       graphics.drawImage (entity.getImage(), entity.getX(), entity.getY(), null);
+    }
     Toolkit.getDefaultToolkit().sync();
     graphics.finalize();
   }
@@ -95,5 +90,10 @@ public final class Paint {
   private void render (Graphics2D graphics, Tile tile)
   {
     graphics.drawImage(tile.getImage(), tile.getX()*32, tile.getY()*32,null);
+  }
+  
+  public void destroy()
+  {
+    frame.dispose();
   }
 }
