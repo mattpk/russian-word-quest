@@ -1,3 +1,7 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package russianwordquest;
 
 /**
@@ -9,7 +13,7 @@ public class NPCDialog extends javax.swing.JDialog {
     private static int npcNumber;
     private static String spell;
     private static String translation;
-    
+
     /**
      * Creates new form NPCDialog
      */
@@ -20,7 +24,6 @@ public class NPCDialog extends javax.swing.JDialog {
         this.translation = translation;
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,31 +33,19 @@ public class NPCDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        titleLabel = new javax.swing.JLabel();
-        descriptionLabel1 = new javax.swing.JLabel();
-        descriptionLabel2 = new javax.swing.JLabel();
-        introLabelSpell = new javax.swing.JLabel();
-        spellNameLabel = new javax.swing.JLabel();
-        introLabelSpellTrans = new javax.swing.JLabel();
         spellTransLabel = new javax.swing.JLabel();
         confirmButton = new javax.swing.JButton();
+        introLabelSpellTrans = new javax.swing.JLabel();
+        introLabelSpell = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        descriptionLabel2 = new javax.swing.JLabel();
+        descriptionLabel1 = new javax.swing.JLabel();
+        titleLabel = new javax.swing.JLabel();
+        spellLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        titleLabel.setFont(new java.awt.Font("Zapfino", 0, 13)); // NOI18N
-        titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleLabel.setText("Hello There!");
-
-        descriptionLabel1.setText("I am here to giude you on your quest. To help with your quest, ");
-
-        descriptionLabel2.setText("I will teach you a new spell! Wow. Exciting. ");
-
-        introLabelSpell.setText("The spell you are learning today is: ");
-
-        spellNameLabel.setFont(new java.awt.Font("Malayalam Sangam MN", 0, 18)); // NOI18N
-        spellNameLabel.setText(spell);
-
-        introLabelSpellTrans.setText("In the glorious mother-tongue (Russian), this means:");
 
         spellTransLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         spellTransLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -67,51 +58,83 @@ public class NPCDialog extends javax.swing.JDialog {
             }
         });
 
-        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
+        introLabelSpellTrans.setText("In the glorious mother-tongue (Russian), this means:");
+
+        introLabelSpell.setText("The spell you are learning is: ");
+
+        jLabel3.setText("As a result, you will only see this message once from me.");
+
+        jLabel2.setText("I also teach computer science.");
+
+        jLabel1.setText("However, I am really cruel and like watching people suffer.");
+
+        descriptionLabel2.setText("I will teach you a new spell! Wow. Exciting. ");
+
+        descriptionLabel1.setText("I am here to giude you on your quest. To help with your quest, ");
+
+        titleLabel.setFont(new java.awt.Font("Outage", 0, 18)); // NOI18N
+        titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titleLabel.setText("Hello There!");
+
+        spellLabel.setText(spell);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
-                .add(165, 165, 165)
-                .add(titleLabel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(159, 159, 159))
-            .add(layout.createSequentialGroup()
-                .addContainerGap()
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(descriptionLabel1)
-                    .add(descriptionLabel2)
-                    .add(layout.createSequentialGroup()
-                        .add(introLabelSpell)
-                        .add(36, 36, 36)
-                        .add(spellNameLabel))
-                    .add(introLabelSpellTrans)
-                    .add(spellTransLabel))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(confirmButton)
-                .add(124, 124, 124))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(159, Short.MAX_VALUE)
+                .addComponent(spellLabel)
+                .addGap(161, 161, 161))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(1, 1, 1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(159, 159, 159)
+                            .addComponent(titleLabel))
+                        .addComponent(descriptionLabel1)
+                        .addComponent(descriptionLabel2)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel3)
+                        .addComponent(introLabelSpell)
+                        .addComponent(introLabelSpellTrans)
+                        .addComponent(spellTransLabel)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(136, 136, 136)
+                            .addComponent(confirmButton)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
-                .addContainerGap()
-                .add(titleLabel)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(descriptionLabel1)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(descriptionLabel2)
-                .add(33, 33, 33)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(introLabelSpell)
-                    .add(spellNameLabel))
-                .add(30, 30, 30)
-                .add(introLabelSpellTrans)
-                .add(18, 18, 18)
-                .add(spellTransLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(confirmButton)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(156, Short.MAX_VALUE)
+                .addComponent(spellLabel)
+                .addGap(128, 128, 128))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(11, 11, 11)
+                    .addComponent(titleLabel)
+                    .addGap(6, 6, 6)
+                    .addComponent(descriptionLabel1)
+                    .addGap(6, 6, 6)
+                    .addComponent(descriptionLabel2)
+                    .addGap(6, 6, 6)
+                    .addComponent(jLabel1)
+                    .addGap(6, 6, 6)
+                    .addComponent(jLabel2)
+                    .addGap(6, 6, 6)
+                    .addComponent(jLabel3)
+                    .addGap(16, 16, 16)
+                    .addComponent(introLabelSpell)
+                    .addGap(6, 6, 6)
+                    .addComponent(introLabelSpellTrans)
+                    .addGap(6, 6, 6)
+                    .addComponent(spellTransLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(6, 6, 6)
+                    .addComponent(confirmButton)
+                    .addContainerGap(17, Short.MAX_VALUE)))
         );
 
         pack();
@@ -170,7 +193,10 @@ public class NPCDialog extends javax.swing.JDialog {
     private javax.swing.JLabel descriptionLabel2;
     private javax.swing.JLabel introLabelSpell;
     private javax.swing.JLabel introLabelSpellTrans;
-    private javax.swing.JLabel spellNameLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel spellLabel;
     private javax.swing.JLabel spellTransLabel;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
